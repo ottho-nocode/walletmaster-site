@@ -3,7 +3,7 @@ import PhoneMockup from "./PhoneMockup";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+    <section id="top" className="relative overflow-hidden pt-32 md:pt-40">
       {/* ambient glows */}
       <div className="glow-blob left-[-10%] top-[-5%] h-[420px] w-[420px] bg-green/25" />
       <div className="glow-blob right-[-8%] top-[30%] h-[360px] w-[360px] bg-blue/20" />
