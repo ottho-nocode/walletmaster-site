@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Wallet Master — landing design system
+   Dark navy + emerald green, calqué sur l'app mobile
+   ============================================================ */
+
+:root {
+  --bg: #070b15;
+  --bg-2: #0a0f1d;
+  --surface: #111a2c;
+  --surface-2: #17223a;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text: #f4f8fd;
+  --muted: #97a3bc;
+  --faint: #5a6685;
+
+  --green: #12e07a;
+  --green-bright: #2bf58e;
+  --green-dim: #0c9d55;
+  --green-ink: #04160c;
+
+  --blue: #4c8df6;
+  --amber: #f5a623;
+  --red: #ff5c5c;
+
+  --glow: rgba(18, 224, 122, 0.4);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-green: var(--green);
+  --color-green-bright: var(--green-bright);
+  --color-green-dim: var(--green-dim);
+  --color-blue: var(--blue);
+  --color-amber: var(--amber);
+  --color-red: var(--red);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ambient grain overlay for depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+::selection {
+  background: var(--green);
+  color: var(--green-ink);
+}
+
+/* ---------- typography helpers ---------- */
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.text-gradient-green {
+  background: linear-gradient(120deg, var(--green-bright), var(--green) 60%, var(--green-dim));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* ---------- surfaces ---------- */
+.card {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+}
+
+.card-glow {
+  position: relative;
+  overflow: hidden;
+}
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, var(--glow), transparent 45%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* pill / chip like the app tags */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.02);
+}
+.chip-green {
+  color: var(--green);
+  border-color: rgba(18, 224, 122, 0.35);
+  background: rgba(18, 224, 122, 0.08);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.25s ease;
+  will-change: transform;
+}
+.btn-primary {
+  background: var(--green);
+  color: var(--green-ink);
+  box-shadow: 0 0 0 rgba(18, 224, 122, 0);
+}
+.btn-primary:hover {
+  background: var(--green-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -12px var(--glow);
+}
+.btn-ghost {
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.02);
+}
+.btn-ghost:hover {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+
+/* ---------- ambient glows ---------- */
+.glow-blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-float,
+  .animate-draw,
+  .animate-pulse-dot,
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+/* ---------- keyframes ---------- */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--glow);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(18, 224, 122, 0);
+  }
+}
+.animate-pulse-dot {
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-in {
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* thin scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green-dim);
+}
