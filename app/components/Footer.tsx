@@ -53,7 +53,7 @@ export default function Footer() {
               <ul className="mt-4 space-y-3 text-sm">
                 <li>
                   <a
-                    href="mailto:mailwalletmaster@gmail.com"
+                    href="mailto:vincent@wallet-master.com"
                     className="text-muted hover:text-text"
                   >
                     Email

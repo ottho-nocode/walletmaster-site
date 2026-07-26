@@ -30,7 +30,7 @@ export default function Contact() {
           {/* contact cards */}
           <Reveal delay={120} className="flex flex-col gap-4">
             <a
-              href="mailto:mailwalletmaster@gmail.com"
+              href="mailto:vincent@wallet-master.com"
               className="card card-glow group flex items-center gap-4 p-6 transition-colors duration-300 hover:border-green/40"
             >
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green/12 text-green">
@@ -41,7 +41,7 @@ export default function Contact() {
                   Email
                 </div>
                 <div className="truncate font-mono text-[1.05rem] font-semibold text-text">
-                  mailwalletmaster@gmail.com
+                  vincent@wallet-master.com
                 </div>
               </div>
               <ArrowUpRight
