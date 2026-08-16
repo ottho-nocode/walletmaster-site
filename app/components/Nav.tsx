@@ -31,17 +31,17 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="group flex items-center gap-2.5">
+        <a href="#top" className="group flex items-center">
+          {/* Lockup officiel (picto + nom) : le nom fait partie de l'image,
+              ne pas remettre de <span> à côté sous peine de doublon. */}
           <Image
-            src="/logo.png"
+            src="/logo-full.png"
             alt="Wallet Master"
-            width={34}
-            height={34}
-            className="transition-transform duration-300 group-hover:scale-110"
+            width={3214}
+            height={386}
+            priority
+            className="h-7 w-auto transition-transform duration-300 group-hover:scale-105 md:h-8"
           />
-          <span className="font-display text-lg font-bold tracking-tight">
-            Wallet Master
-          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
