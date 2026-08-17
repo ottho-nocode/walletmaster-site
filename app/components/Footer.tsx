@@ -7,11 +7,15 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8">
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row">
           <div className="max-w-sm">
-            <div className="flex items-center gap-2.5">
-              <Image src="/logo.png" alt="Wallet Master" width={30} height={30} />
-              <span className="font-display text-lg font-bold tracking-tight">
-                Wallet Master
-              </span>
+            <div className="flex items-center">
+              {/* Lockup officiel : le nom est dans l'image, pas de <span> à côté. */}
+              <Image
+                src="/logo-full.png"
+                alt="Wallet Master"
+                width={3214}
+                height={386}
+                className="h-7 w-auto"
+              />
             </div>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-muted">
               Votre GPS financier. Comprendre, définir, avancer — étape par étape,
