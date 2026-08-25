@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 
 export default function Footer() {
@@ -67,6 +68,23 @@ export default function Footer() {
                   <a href="tel:+33782469047" className="text-muted hover:text-text">
                     Téléphone
                   </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-widest text-faint">
+                Légal
+              </div>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li>
+                  <Link href="/mentions-legales" className="text-muted hover:text-text">
+                    Mentions légales
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/copyright" className="text-muted hover:text-text">
+                    Copyright
+                  </Link>
                 </li>
               </ul>
             </div>
